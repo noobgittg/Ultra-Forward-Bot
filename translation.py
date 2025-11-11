@@ -14,9 +14,7 @@ class Translation(object):
 ᴄʟɪᴄᴋ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ᴛᴏ ᴋɴᴏᴡ ᴍᴏʀᴇ ᴀʙᴏᴜᴛ ᴍᴇ</b>"""
 
 
-  DONATE_TXT = """<b><i>If you liked me ❤️. consider make a donation to support my developer 👦
-
-UPI ID - </i></b><code>pay-to-yash-singh@fam</code>"""
+  DONATE_TXT = """<b><i>Thanks For Your This Mind, Keep It Up\n\n Support Us Only ❣️♥️</i></b>"""
 
   HELP_TXT = """<b><u>🔆 ʜᴇʟᴘ</b></u>
 
@@ -59,11 +57,11 @@ UPI ID - </i></b><code>pay-to-yash-singh@fam</code>"""
 ╔════❰ ғᴏʀᴡᴀʀᴅ ʙᴏᴛ ❱═❍⊱❁
 ║╭━━━━━━━━━━━━━━━➣
 ║┣⪼📃ʙᴏᴛ : ғᴏʀᴡᴀʀᴅ ʙᴏᴛ
-║┣⪼👦ᴄʀᴇᴀᴛᴏʀ : sɪʟɪᴄᴏɴ ᴅᴇᴠᴇʟᴏᴘᴇʀ
-║┣⪼📡ʜᴏsᴛᴇᴅ ᴏɴ : ʜᴇʀᴏᴋᴜ
-║┣⪼🗣️ʟᴀɴɢᴜᴀɢᴇ : ᴘʏᴛʜᴏɴ3
+║┣⪼👦ᴄʀᴇᴀᴛᴏʀ : MMW BOTZ
+║┣⪼📡ʜᴏsᴛᴇᴅ ᴏɴ : koyeb
+║┣⪼🗣️ʟᴀɴɢᴜᴀɢᴇ : ᴘʏᴛʜᴏɴ 3.10
 ║┣⪼📚ʟɪʙʀᴀʀʏ : ᴘʏʀᴏɢʀᴀᴍ
-║┣⪼🗒️ᴠᴇʀsɪᴏɴ : 1.0.6
+║┣⪼🗒️ᴠᴇʀsɪᴏɴ : 1
 ║╰━━━━━━━━━━━━━━━➣
 ╚══════════════════❍⊱❁</b>"""
 
