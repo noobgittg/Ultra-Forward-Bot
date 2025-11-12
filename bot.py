@@ -11,7 +11,7 @@ from pyrogram.raw.all import layer
 from pyrogram.enums import ParseMode
 from pyrogram.errors import FloodWait
 from aiohttp import web
-from plugins import web_server
+from plugins.silicon import web_server
 
 logging.config.fileConfig('logging.conf')
 logging.getLogger().setLevel(logging.INFO)
