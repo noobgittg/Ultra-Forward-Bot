@@ -62,8 +62,7 @@ class Bot(Client):
         asyncio.create_task(keep_service_alive())
         asyncio.create_task(self.start_web_server())
 
-        await db.connect()
-
+        
     async def start_web_server(self):
         app = await web_server()
         runner = web.AppRunner(app)
