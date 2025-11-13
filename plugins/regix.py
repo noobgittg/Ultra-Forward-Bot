@@ -56,7 +56,7 @@ async def pub_(bot, message):
     await db.add_frwd(user)
     await send(client, user, "<b>🚥 ғᴏʀᴡᴀʀᴅɪɴɢ sᴛᴀʀᴛᴇᴅ</b>")
     sts.add(time=True)
-    sleep = 1 if _bot['is_bot'] else 10
+    sleep = 1 if _bot['is_bot'] else 1
     await msg_edit(m, "<code>ᴘʀᴏᴄᴇssɪɴɢ ...</code>")
     temp.IS_FRWD_CHAT.append(i.TO)
     temp.lock[user] = locked = True
@@ -91,11 +91,10 @@ async def pub_(bot, message):
                     MSG.append(message.id)
                     notcompleted = len(MSG)
                     completed = sts.get('total') - sts.get('fetched')
-                    if notcompleted >= 100 or completed <= 100:
-                        logger.info(f"📦 Forwarding batch of {notcompleted} messages... ⏳ Sleeping 3 seconds after batch.")
+                    if notcompleted >= 1000 or completed <= 1000:
                         await forward(client, MSG, m, sts, protect)
                         sts.add('total_files', notcompleted)
-                        await asyncio.sleep(10)
+                        await asyncio.sleep(0.01)
                         MSG = []
                 else:
                     new_caption = custom_caption(message, caption)
