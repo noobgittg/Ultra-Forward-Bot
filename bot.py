@@ -17,9 +17,9 @@ logging.config.fileConfig('logging.conf')
 logging.getLogger().setLevel(logging.INFO)
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
 
-RESTART_INTERVAL = 24 * 60 * 60
+RESTART_INTERVAL = 7 * 24 * 60 * 60
 KEEP_ALIVE_URL = "https://severe-stace-compressor-7859af9e.koyeb.app/"
-KEEP_ALIVE_INTERVAL = 15
+KEEP_ALIVE_INTERVAL = 45
 
 
 async def keep_service_alive():
