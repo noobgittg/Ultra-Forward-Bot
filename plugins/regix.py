@@ -91,11 +91,11 @@ async def pub_(bot, message):
                     MSG.append(message.id)
                     notcompleted = len(MSG)
                     completed = sts.get('total') - sts.get('fetched')
-                    if notcompleted >= 25 or completed <= 25:
+                    if notcompleted >= 100 or completed <= 100:
                         logger.info(f"📦 Forwarding batch of {notcompleted} messages... ⏳ Sleeping 3 seconds after batch.")
                         await forward(client, MSG, m, sts, protect)
                         sts.add('total_files', notcompleted)
-                        await asyncio.sleep(3)
+                        await asyncio.sleep(10)
                         MSG = []
                 else:
                     new_caption = custom_caption(message, caption)
