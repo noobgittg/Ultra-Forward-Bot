@@ -4,7 +4,7 @@ from config import temp
 from .test import CLIENT , start_clone_bot
 from translation import Translation
 from pyrogram import Client, filters 
-#from pyropatch.utils import unpack_new_file_id
+from pyropatch.utils import unpack_new_file_id
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 DUPLICATE_TEXT = """
