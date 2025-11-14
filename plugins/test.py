@@ -13,9 +13,6 @@ from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, Acces
 from pyrogram.errors import FloodWait
 from config import Config
 from translation import Translation
-#Dont Remove My Credit @Silicon_Bot_Update 
-#This Repo Is By @Silicon_Official 
-# For Any Kind Of Error Ask Us In Support Group @Silicon_Botz   
 from typing import Union, Optional, AsyncGenerator
 
 logger = logging.getLogger(__name__)
@@ -24,12 +21,9 @@ logger.setLevel(logging.INFO)
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)]\[buttonurl:/{0,2}(.+?)(:same)?])")
 BOT_TOKEN_TEXT = "<b>1) create a bot using @BotFather\n2) Then you will get a message with bot token\n3) Forward that message to me</b>"
 SESSION_STRING_SIZE = 351
-#Dont Remove My Credit @Silicon_Bot_Update 
-#This Repo Is By @Silicon_Official 
-# For Any Kind Of Error Ask Us In Support Group @Silicon_Botz 
+
 async def start_clone_bot(FwdBot, data=None):
    await FwdBot.start()
-   #
    async def iter_messages(
       self, 
       chat_id: Union[int, str], 
@@ -38,29 +32,6 @@ async def start_clone_bot(FwdBot, data=None):
       search: str = None,
       filter: "types.TypeMessagesFilter" = None,
       ) -> Optional[AsyncGenerator["types.Message", None]]:
-        """Iterate through a chat sequentially.
-        This convenience method does the same as repeatedly calling :meth:`~pyrogram.Client.get_messages` in a loop, thus saving
-        you from the hassle of setting up boilerplate code. It is useful for getting the whole chat messages with a
-        single call.
-        Parameters:
-            chat_id (``int`` | ``str``):
-                Unique identifier (int) or username (str) of the target chat.
-                For your personal cloud (Saved Messages) you can simply use "me" or "self".
-                For a contact that exists in your Telegram address book you can use his phone number (str).
-                
-            limit (``int``):
-                Identifier of the last message to be returned.
-                
-            offset (``int``, *optional*):
-                Identifier of the first message to be returned.
-                Defaults to 0.
-        Returns:
-            ``Generator``: A generator yielding :obj:`~pyrogram.types.Message` objects.
-        Example:
-            .. code-block:: python
-                for message in app.iter_messages("pyrogram", 1, 15000):
-                    print(message.text)
-        """
         current = offset
         while True:
             new_diff = min(200, limit - current)
@@ -70,12 +41,9 @@ async def start_clone_bot(FwdBot, data=None):
             for message in messages:
                 yield message
                 current += 1
-   #
    FwdBot.iter_messages = iter_messages
    return FwdBot
-#Dont Remove My Credit @Silicon_Bot_Update 
-#This Repo Is By @Silicon_Official 
-# For Any Kind Of Error Ask Us In Support Group @Silicon_Botz 
+
 class CLIENT: 
   def __init__(self):
      self.api_id = Config.API_ID
@@ -89,9 +57,7 @@ class CLIENT:
      elif user != False:
         data = data.get('token')
      return Client("BOT", self.api_id, self.api_hash, bot_token=data, in_memory=True)
- #Dont Remove My Credit @Silicon_Bot_Update 
-#This Repo Is By @Silicon_Official 
-# For Any Kind Of Error Ask Us In Support Group @Silicon_Botz  
+ 
   async def add_bot(self, bot, message):
      user_id = int(message.from_user.id)
      msg = await bot.ask(chat_id=user_id, text=BOT_TOKEN_TEXT)
@@ -120,14 +86,12 @@ class CLIENT:
      }
      await db.add_bot(details)
      return True
-#Dont Remove My Credit @Silicon_Bot_Update 
-#This Repo Is By @Silicon_Official 
-# For Any Kind Of Error Ask Us In Support Group @Silicon_Botz 
+
   async def add_login(self, bot, message):
     user_id = int(message.from_user.id)
     api_id = Config.API_ID
     api_hash = Config.API_HASH
-    disclaimer_text = "<b><blockquote>**<u>⚠️ Warning ⚠️</u>**:\n\n If you already have a session string, please use the add user bot. Otherwise, you can use login.</blockquote>"
+    disclaimer_text = "<b><blockquote><u>⚠️ Warning ⚠️</u>:\n\n If you already have a session string, please use the add user bot. Otherwise, you can use login.</blockquote>"
     await bot.send_message(user_id, text=disclaimer_text)
     t = "➫ ᴘʟᴇᴀsᴇ sᴇɴᴅ ʏᴏᴜʀ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ ᴡɪᴛʜ ᴄᴏᴜɴᴛʀʏ ᴄᴏᴅᴇ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ sᴇssɪᴏɴ \n➫ ᴇxᴀᴍᴘʟᴇ: +910000000000\n/cancel - ᴛᴏ ᴄᴀɴᴄᴇʟ ᴛʜɪs ᴘʀᴏᴄᴇss"
     phone_number_msg = await bot.ask(user_id, t, filters=filters.text)
@@ -194,7 +158,6 @@ class CLIENT:
     await client.disconnect()
     return details    
 
-    
   async def add_session(self, bot, message):
      user_id = int(message.from_user.id)
      text = "<b>⚠️ DISCLAIMER ⚠️</b>\n\n<code>you can use your session for forward message from private chat to another chat.\nPlease add your pyrogram session with your own risk. Their is a chance to ban your account. My developer is not responsible if your account may get banned.</code>"
@@ -224,16 +187,12 @@ class CLIENT:
 async def forward_tag(bot, m):
     try:
         default = await db.get_configs("01")
-        #temp.CONFIGS[m.from_user.id] = default
         await db.update_configs(m.from_user.id, default)
         await m.reply("Successfully reset settings ✔️")
     except Exception as e:
-        # Log the error or handle it accordingly
         print(f"An error occurred: {e}")
         await m.reply("An error occurred while resetting settings. Please try again later.")
-#Dont Remove My Credit @Silicon_Bot_Update 
-#This Repo Is By @Silicon_Official 
-# For Any Kind Of Error Ask Us In Support Group @Silicon_Botz 
+
 @Client.on_message(filters.command('resetall') & filters.user(Config.BOT_OWNER_ID))
 async def resetall(bot, message):
   users = await db.get_all_users()
@@ -259,10 +218,7 @@ async def resetall(bot, message):
   await sts.edit("completed\n" + TEXT.format(total, success, failed, already))
   
 async def get_configs(user_id):
-  #configs = temp.CONFIGS.get(user_id)
-  #if not configs:
   configs = await db.get_configs(user_id)
-  #temp.CONFIGS[user_id] = configs 
   return configs
                           
 async def update_configs(user_id, key, value):
@@ -271,11 +227,8 @@ async def update_configs(user_id, key, value):
      current[key] = value
   else: 
      current['filters'][key] = value
- # temp.CONFIGS[user_id] = value
   await db.update_configs(user_id, current)
-#Dont Remove My Credit @Silicon_Bot_Update 
-#This Repo Is By @Silicon_Official 
-# For Any Kind Of Error Ask Us In Support Group @Silicon_Botz     
+
 def parse_buttons(text, markup=True):
     buttons = []
     for match in BTN_URL_REGEX.finditer(text):
@@ -297,6 +250,3 @@ def parse_buttons(text, markup=True):
     if markup and buttons:
        buttons = InlineKeyboardMarkup(buttons)
     return buttons if buttons else None
-#Dont Remove My Credit @Silicon_Bot_Update 
-#This Repo Is By @Silicon_Official 
-# For Any Kind Of Error Ask Us In Support Group @Silicon_Botz 
