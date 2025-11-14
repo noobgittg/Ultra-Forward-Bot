@@ -12,29 +12,28 @@ class Translation(object):
 
   DONATE_TXT = """<b><i>Thanks For Your This Mind, Keep It Up\n\n Support Us Only ❣️♥️</i></b>"""
 
-  HELP_TXT = """<b><u>🔆 ʜᴇʟᴘ</b></u>
+  HELP_TXT = """
+<b>☔️ </b><b><u>Commands</u>:</b>
 
-<u>**📚 Available Commands:**</u>
+<b><i>☞ </i></b><b><i>/start</i></b><i><b> -</b> check I'm alive</i>
+<b><i>☞ </i></b><b><i>/forward</i></b><i><b> -</b> forward messages</i>
+<b><i>☞ </i></b><b><i>/unequify</i></b><i><b> -</b> delete duplicate media messages in chats</i>
+<b><i>☞ </i></b><b><i>/settings</i></b><i><b> -</b> configure your settings</i>
+<b><i>☞ </i></b><b><i>/stop</i></b><i><b> -</b> stop your ongoing tasks</i>
+<b><i>☞ </i></b><b><i>/reset</i></b><i><b> -</b> reset your settings</i>
 
-<b>⏣ __/start - Check I'm alive__ 
-⏣ __/forward - Forward messages__
-⏣ __/unequify - Delete duplicate messages in channels__
-⏣ __/settings - Configure your settings__
-⏣ __/reset - Reset your settings__
-⏣ __/donate - Donate to developer__
-⏣ __/stop - Cancel your ongoing forwarding__</b>
+<quote exp><b>🪔 </b><b><u>Features</u>:</b>
 
-<b><u>💢 Features:</b></u>
-<b>► __Forward message from public channel to your channel without admin permission. if the channel is private need admin permission__
-► __Forward message from private channel to your channel by using userbot(user must be member in there)__
-► __Custom caption__
-► __Custom button__
-► __Support restricted chats__
-► __Skip duplicate messages__
-► __Filter type of messages__
-► __Skip messages based on extensions & keywords & size__</b>
+<b><i>✑ Forward message from public channel to your channel without admin permission. if the channel is private need admin permission
+✑ Forward message from private channel to your channel by using userbot(user must be member in there)
+✑ custom caption
+✑ custom button
+✑ support restricted chats
+✑ skip duplicate messages
+✑ filter type of messages
+✑ skip messages based on extensions & keywords & size</i></b></quote>
 """
-
+  
   HOW_USE_TXT = """<b><u>⚠️ Before Forwarding:</b></u>
 <b>► __add a bot or userbot__
 ► __add atleast one to channel__ `(your bot/userbot must be admin in there)`
