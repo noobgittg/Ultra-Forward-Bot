@@ -1,7 +1,3 @@
-#Dont Remove My Credit @Silicon_Bot_Update 
-#This Repo Is By @Silicon_Official 
-# For Any Kind Of Error Ask Us In Support Group @Silicon_Botz 
-
 import os
 from config import Config
 
@@ -38,10 +34,7 @@ class Translation(object):
 ► __Filter type of messages__
 ► __Skip messages based on extensions & keywords & size__</b>
 """
-#Dont Remove My Credit @Silicon_Bot_Update 
-#This Repo Is By @Silicon_Official 
-# For Any Kind Of Error Ask Us In Support Group @Silicon_Botz
-  
+
   HOW_USE_TXT = """<b><u>⚠️ Before Forwarding:</b></u>
 <b>► __add a bot or userbot__
 ► __add atleast one to channel__ `(your bot/userbot must be admin in there)`
@@ -49,26 +42,18 @@ class Translation(object):
 ► __if the **From Channel** is private your userbot must be member in there or your bot must need admin permission in there also__
 ► __Then use /forward to forward messages__</b>"""
 
-#Dont Remove My Credit @Silicon_Bot_Update 
-#This Repo Is By @Silicon_Official 
-# For Any Kind Of Error Ask Us In Support Group @Silicon_Botz 
-  
   ABOUT_TXT = """<b>
 ╔════❰ ғᴏʀᴡᴀʀᴅ ʙᴏᴛ ❱═❍⊱❁
 ║╭━━━━━━━━━━━━━━━➣
-║┣⪼📃ʙᴏᴛ : ғᴏʀᴡᴀʀᴅ ʙᴏᴛ
-║┣⪼👦ᴄʀᴇᴀᴛᴏʀ : MMW BOTZ
-║┣⪼📡ʜᴏsᴛᴇᴅ ᴏɴ : koyeb
-║┣⪼🗣️ʟᴀɴɢᴜᴀɢᴇ : ᴘʏᴛʜᴏɴ 3.10
-║┣⪼📚ʟɪʙʀᴀʀʏ : ᴘʏʀᴏɢʀᴀᴍ
-║┣⪼🗒️ᴠᴇʀsɪᴏɴ : 1
+║┣⪼📃ʙᴏᴛ : <a href=https://t.me/Royalautofilterbot>ᴀᴅᴠᴀɴᴄᴇᴅ ᴀᴜᴛᴏ ꜰᴏʀᴡᴀʀᴅ ʙᴏᴛ™</a>
+║┣⪼👦ᴄʀᴇᴀᴛᴏʀ : <a href=https://t.me/mallumovieworldmain2>Mᴍᴡ Bᴏᴛᴢ</a>
+║┣⪼📡ʜᴏsᴛᴇᴅ ᴏɴ : <a href=https://www.digitalocean.com/>Digital Ocean</a>
+║┣⪼🗣️ʟᴀɴɢᴜᴀɢᴇ : <a href=https://peps.python.org/pep-0619/>ᴘʏᴛʜᴏɴ 3.10</a>
+║┣⪼📚ʟɪʙʀᴀʀʏ : <a href=https://docs.pyrogram.org/>ᴘʏʀᴏɢʀᴀᴍ</a>
+║┣⪼🗒️ᴠᴇʀsɪᴏɴ : V2.0 [ 𝙱𝙴𝚃𝙰 ]
 ║╰━━━━━━━━━━━━━━━➣
 ╚══════════════════❍⊱❁</b>"""
 
-#Dont Remove My Credit @Silicon_Bot_Update 
-#This Repo Is By @Silicon_Official 
-# For Any Kind Of Error Ask Us In Support Group @Silicon_Botz 
-  
   STATUS_TXT = """<b>
 ╔════❰ ʙᴏᴛ sᴛᴀᴛᴜs  ❱═❍⊱❁
 ║╭━━━━━━━━━━━━━━━➣
@@ -101,10 +86,6 @@ class Translation(object):
 
   CANCEL = "<b>Process Cancelled Succefully !</b>"
 
-#Dont Remove My Credit @Silicon_Bot_Update 
-#This Repo Is By @Silicon_Official 
-# For Any Kind Of Error Ask Us In Support Group @Silicon_Botz 
-
   BOT_DETAILS = "<b><u>📄 BOT DETAILS</b></u>\n\n<b>➣ NAME:</b> <code>{}</code>\n<b>➣ BOT ID:</b> <code>{}</code>\n<b>➣ USERNAME:</b> @{}"
 
   USER_DETAILS = "<b><u>📄 USERBOT DETAILS</b></u>\n\n<b>➣ NAME:</b> <code>{}</code>\n<b>➣ USER ID:</b> <code>{}</code>\n<b>➣ USERNAME:</b> @{}"  
@@ -131,9 +112,6 @@ class Translation(object):
 ║╰━━━━━━━━━━━━━━━➣ 
 ╚════❰ <b>{}</b> ❱══❍⊱❁"""
 
-#Dont Remove My Credit @Silicon_Bot_Update 
-#This Repo Is By @Silicon_Official 
-# For Any Kind Of Error Ask Us In Support Group @Silicon_Botz 
   DUPLICATE_TEXT = """
 ╔════❰ ᴜɴᴇǫᴜɪғʏ sᴛᴀᴛᴜs ❱═❍⊱❁۪۪
 ║╭━━━━━━━━━━━━━━━➣
@@ -143,13 +121,10 @@ class Translation(object):
 ║╰━━━━━━━━━━━━━━━➣
 ╚════❰ {} ❱══❍⊱❁۪۪
 """
-#Dont Remove My Credit @Silicon_Bot_Update 
-#This Repo Is By @Silicon_Official 
-# For Any Kind Of Error Ask Us In Support Group @Silicon_Botz 
+
   DOUBLE_CHECK = """<b><u>ᴅᴏᴜʙʟᴇ ᴄʜᴇᴄᴋɪɴɢ 📋</b></u>
 
 <b>ʙᴇꜰᴏʀᴇ ꜰᴏʀᴡᴀʀᴅɪɴɢ ᴛʜᴇ ᴍᴇssᴀɢᴇs ᴄʟɪᴄᴋ ᴛʜᴇ ʏᴇs ʙᴜᴛᴛᴏɴ ᴏɴʟʏ ᴀꜰᴛᴇʀ ᴄʜᴇᴄᴋɪɴɢ ᴛʜᴇ ꜰᴏʟʟᴏᴡɪɴɢ</b>
-
 
 <b>★ ʏᴏᴜʀ ʙᴏᴛ: {botname}</b>
 <b>★ sᴏᴜʀᴄᴇ ᴄʜᴀᴛ: {from_chat}</b>
@@ -161,7 +136,3 @@ class Translation(object):
 
 <b>ɪꜰ ᴛʜᴇ ᴀʙᴏᴠᴇ ɪs ᴄʜᴇᴄᴋᴇᴅ ᴛʜᴇɴ ᴛʜᴇ ʏᴇs ʙᴜᴛᴛᴏɴ ᴄᴀɴ ʙᴇ ᴄʟɪᴄᴋᴇᴅ</b>"""
 
-
-#Dont Remove My Credit @Silicon_Bot_Update 
-#This Repo Is By @Silicon_Official 
-# For Any Kind Of Error Ask Us In Support Group @Silicon_Botz 
