@@ -3,9 +3,11 @@ from database import db
 from config import temp
 from .test import CLIENT , start_clone_bot
 from translation import Translation
-from pyrogram import Client, filters 
-from pyropatch.utils import unpack_new_file_id
+from pyrogram import Client, filters, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+import struct
+from pyrogram.file_id import FileId
+import base64
 
 DUPLICATE_TEXT = """
 ╔════❰ ᴜɴᴇǫᴜɪғʏ sᴛᴀᴛᴜs ❱═❍⊱❁۪۪
@@ -29,6 +31,37 @@ COMPLETED_BTN = InlineKeyboardMarkup(
 )    
     
 CANCEL_BTN = InlineKeyboardMarkup([[InlineKeyboardButton('• ᴄᴀɴᴄᴇʟ', callback_data="close_btn")]])    
+
+def encode_file_id(s: bytes) -> str:
+    r = b""
+    n = 0
+
+    for i in s + bytes([22]) + bytes([4]):
+        if i == 0:
+            n += 1
+        else:
+            if n:
+                r += b"\x00" + bytes([n])
+                n = 0
+
+            r += bytes([i])
+
+    return base64.urlsafe_b64encode(r).decode().rstrip("=")
+   
+
+def unpack_new_file_id(new_file_id):
+    """Return file_id"""
+    decoded = FileId.decode(new_file_id)
+    file_id = encode_file_id(
+        struct.pack(
+            "<iiqq",
+            int(decoded.file_type),
+            decoded.dc_id,
+            decoded.media_id,
+            decoded.access_hash
+        )
+    )
+    return file_id
 
 @Client.on_message(filters.command("unequify") & filters.private)    
 async def unequify(client, message):    
