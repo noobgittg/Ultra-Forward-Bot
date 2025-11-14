@@ -93,7 +93,7 @@ class CLIENT:
     api_hash = Config.API_HASH
     disclaimer_text = "<b><blockquote><u>⚠️ Warning ⚠️</u>:\n\n If you already have a session string, please use the add user bot. Otherwise, you can use login.</blockquote>"
     await bot.send_message(user_id, text=disclaimer_text)
-    t = "➫ ᴘʟᴇᴀsᴇ sᴇɴᴅ ʏᴏᴜʀ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ ᴡɪᴛʜ ᴄᴏᴜɴᴛʀʏ ᴄᴏᴅᴇ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ sᴇssɪᴏɴ \n➫ ᴇxᴀᴍᴘʟᴇ: +910000000000\n/cancel - ᴛᴏ ᴄᴀɴᴄᴇʟ ᴛʜɪs ᴘʀᴏᴄᴇss"
+    t = "➫ ᴘʟᴇᴀsᴇ sᴇɴᴅ ʏᴏᴜʀ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ ᴡɪᴛʜ ᴄᴏᴜɴᴛʀʏ ᴄᴏᴅᴇ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ sᴇssɪᴏɴ \n➫ ᴇxᴀᴍᴘʟᴇ: <code>+13124562345</code>\n/cancel - ᴛᴏ ᴄᴀɴᴄᴇʟ ᴛʜɪs ᴘʀᴏᴄᴇss"
     phone_number_msg = await bot.ask(user_id, t, filters=filters.text)
     if phone_number_msg.text and phone_number_msg.text.startswith('/'):
         await bot.send_message(user_id, "<b>Process cancelled!</b>")
@@ -162,7 +162,7 @@ class CLIENT:
      user_id = int(message.from_user.id)
      text = "<b>⚠️ DISCLAIMER ⚠️</b>\n\n<code>you can use your session for forward message from private chat to another chat.\nPlease add your pyrogram session with your own risk. Their is a chance to ban your account. My developer is not responsible if your account may get banned.</code>"
      await bot.send_message(user_id, text=text)
-     msg = await bot.ask(chat_id=user_id, text="<b>send your pyrogram session.\nget it from @mdsessiongenbot\n\n/cancel - cancel the process</b>")
+     msg = await bot.ask(chat_id=user_id, text="<b>send your pyrogram session.\nget it from @SessionStringZBot\n\n/cancel - cancel the process</b>")
      if msg.text=='/cancel':
         return await msg.reply('<b>process cancelled !</b>')
      elif len(msg.text) < SESSION_STRING_SIZE:
