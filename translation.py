@@ -22,7 +22,7 @@ class Translation(object):
 <b><i>☞ </i></b><b><i>/stop</i></b><i><b> -</b> stop your ongoing tasks</i>
 <b><i>☞ </i></b><b><i>/reset</i></b><i><b> -</b> reset your settings</i>
 
-<quote exp><b>🪔 </b><b><u>Features</u>:</b>
+<blockquote expandable><b>🪔 </b><b><u>Features</u>:</b>
 
 <b><i>✑ Forward message from public channel to your channel without admin permission. if the channel is private need admin permission
 ✑ Forward message from private channel to your channel by using userbot(user must be member in there)
@@ -31,7 +31,7 @@ class Translation(object):
 ✑ support restricted chats
 ✑ skip duplicate messages
 ✑ filter type of messages
-✑ skip messages based on extensions & keywords & size</i></b></quote>
+✑ skip messages based on extensions & keywords & size</i></b></blockquote>
 """
   
   HOW_USE_TXT = """<b><u>⚠️ Before Forwarding:</b></u>
