@@ -12,12 +12,12 @@ from pyrogram import Client, filters, enums, __version__ as pyrogram_version
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaDocument
 
 main_buttons = [[
-        InlineKeyboardButton('❗️ʜᴇʟᴘ', callback_data='help')
-        ],[
-        InlineKeyboardButton('📢 ᴜᴘᴅᴀᴛᴇ', url='https://t.me/mallumovieworldmain2')
-        ],[
-        InlineKeyboardButton('💳 ᴅᴏɴᴀᴛᴇ', callback_data='donate')
-        ]]
+            InlineKeyboardButton('• ʜᴇʟᴘ', callback_data='help'),
+            InlineKeyboardButton('• ᴀʙᴏᴜᴛ', callback_data='about')
+            ],[
+            InlineKeyboardButton('• sᴇᴛᴛɪɴɢs ', callback_data='settings#main'),
+            ]]
+
 
 @Client.on_message(filters.private & filters.command(['start']))
 async def start(client, message):
@@ -171,5 +171,5 @@ async def server_status(bot, query):
 @Client.on_message(filters.private & filters.command(['donate']))
 async def restart(client, message):
     msg = await message.reply_text(
-        text="**ThanksFor This Mind Sir\n\n Keep Support** ♥️❤️‍🔥🔥❣️"
+        text="<b>ThanksFor This Mind Sir\n\nKeep Support</b>♥️❤️‍🔥🔥❣️"
     )
