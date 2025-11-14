@@ -36,12 +36,6 @@ async def settings_query(bot, query):
      if _bot is not None:
         buttons.append([InlineKeyboardButton(_bot['name'],
                          callback_data=f"settings#editbot")])
-        buttons.append([InlineKeyboardButton('✚ ᴀᴅᴅ ᴜsᴇʀ ʙᴏᴛ ✚', 
-                         callback_data="settings#adduserbot")])
-        buttons.append([InlineKeyboardButton('✚ ʟᴏɢɪɴ ᴜsᴇʀ ʙᴏᴛ ✚', 
-                         callback_data="settings#addlogin")])
-
-
      else:
         buttons.append([InlineKeyboardButton('✚ ᴀᴅᴅ ʙᴏᴛ ✚', 
                          callback_data="settings#addbot")])
