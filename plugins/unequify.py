@@ -12,13 +12,9 @@ import base64
 DUPLICATE_TEXT = """
 ╔════❰ ᴜɴᴇǫᴜɪғʏ sᴛᴀᴛᴜs ❱═❍⊱❁۪۪
 ║╭━━━━━━━━━━━━━━━➣
-║┣⪼ ғᴇᴛᴄʜᴇᴅ ᴍᴇᴅɪᴀs: {}
+║┣⪼ <b>ғᴇᴛᴄʜᴇᴅ ғɪʟᴇs:</b> <code>{}</code>
 ║┃
-║┣⪼ ʀᴇᴍᴀɪɴɪɴɢ ᴍᴇᴅɪᴀs: {}
-║┃
-║┣⪼ ᴜɴsᴜᴘᴘᴏʀᴛᴇᴅ ᴍᴇᴅɪᴀs: {}
-║┃
-║┣⪼ ᴅᴜᴘʟɪᴄᴀᴛᴇ ᴅᴇʟᴇᴛᴇᴅ: {} 
+║┣⪼ <b>ᴅᴜᴘʟɪᴄᴀᴛᴇ ᴅᴇʟᴇᴛᴇᴅ:</b> <code>{}</code> 
 ║╰━━━━━━━━━━━━━━━➣
 ╚════❰ {} ❱══❍⊱❁۪۪
 """
@@ -106,43 +102,35 @@ async def unequify(client, message):
    MESSAGES = []    
    DUPLICATE = []    
    total = 0
-   checked = 0
-   unsupported = 0
    deleted = 0
    temp.lock[user_id] = True    
-   try:    
-     await sts.edit(DUPLICATE_TEXT.format(0, 0, 0, 0, "ᴘʀᴏɢʀᴇssɪɴɢ"), reply_markup=CANCEL_BTN)    
-     async for message in bot.search_messages(chat_id=chat_id):    
-        if temp.CANCEL.get(user_id) == True:    
-           remaining = checked - deleted    
-           await sts.edit(DUPLICATE_TEXT.format(checked, remaining, unsupported, deleted, "ᴄᴀɴᴄᴇʟʟᴇᴅ"), reply_markup=COMPLETED_BTN)    
-           return await bot.stop()    
-        total += 1    
-        if message.document or message.video:    
-           checked += 1    
-           file = message.document or message.video    
-           file_id = unpack_new_file_id(file.file_id)     
-           if file_id in MESSAGES:    
-              DUPLICATE.append(message.id)    
-           else:    
-              MESSAGES.append(file_id)    
-           if len(DUPLICATE) >= 80:    
-              await bot.delete_messages(chat_id, DUPLICATE)    
-              deleted += 80    
-              DUPLICATE = []    
-        else:    
-           unsupported += 1    
-        if total % 80 == 0:    
-           remaining = checked - deleted    
-           await sts.edit(DUPLICATE_TEXT.format(checked, remaining, unsupported, deleted, "ᴘʀᴏɢʀᴇssɪɴɢ"), reply_markup=CANCEL_BTN)    
-     if DUPLICATE:    
-        await bot.delete_messages(chat_id, DUPLICATE)    
-        deleted += len(DUPLICATE)    
-   except Exception as e:    
-       temp.lock[user_id] = False     
-       await sts.edit(f"**ERROR**\n`{e}`")    
-       return await bot.stop()    
-   temp.lock[user_id] = False    
-   remaining = checked - deleted    
-   await sts.edit(DUPLICATE_TEXT.format(checked, remaining, unsupported, deleted, "ᴄᴏᴍᴘʟᴇᴛᴇᴅ"), reply_markup=COMPLETED_BTN)    
-   await bot.stop()    
+   try:
+     await sts.edit(DUPLICATE_TEXT.format(total, deleted, "ᴘʀᴏɢʀᴇssɪɴɢ"), reply_markup=CANCEL_BTN)
+     async for message in bot.search_messages(chat_id=chat_id, filter=enums.MessagesFilter.DOCUMENT):
+        if temp.CANCEL.get(user_id) == True:
+           await sts.edit(DUPLICATE_TEXT.format(total, deleted, "ᴄᴀɴᴄᴇʟʟᴇᴅ"), reply_markup=COMPLETED_BTN)
+           return await bot.stop()
+        file = message.document
+        file_id = unpack_new_file_id(file.file_id) 
+        if file_id in MESSAGES:
+           DUPLICATE.append(message.id)
+        else:
+           MESSAGES.append(file_id)
+        total += 1
+        if total %1000 == 0:
+           await sts.edit(DUPLICATE_TEXT.format(total, deleted, "ᴘʀᴏɢʀᴇssɪɴɢ"), reply_markup=CANCEL_BTN)
+        if len(DUPLICATE) >= 100:
+           await bot.delete_messages(chat_id, DUPLICATE)
+           deleted += 100
+           await sts.edit(DUPLICATE_TEXT.format(total, deleted, "ᴘʀᴏɢʀᴇssɪɴɢ"), reply_markup=CANCEL_BTN)
+           DUPLICATE = []
+     if DUPLICATE:
+        await bot.delete_messages(chat_id, DUPLICATE)
+        deleted += len(DUPLICATE)
+   except Exception as e:
+       temp.lock[user_id] = False 
+       await sts.edit(f"**ERROR**\n`{e}`")
+       return await bot.stop()
+   temp.lock[user_id] = False
+   await sts.edit(DUPLICATE_TEXT.format(total, deleted, "ᴄᴏᴍᴘʟᴇᴛᴇᴅ"), reply_markup=COMPLETED_BTN)
+   await bot.stop()
