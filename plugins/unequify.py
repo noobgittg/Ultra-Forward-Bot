@@ -90,15 +90,14 @@ async def unequify(client, message):
        await sts.edit(f"<b>please make your [userbot](t.me/{_bot['username']}) admin in target chat with full permissions</b>")    
        return await bot.stop()    
    MESSAGES = []    
-   DUPLICATE = []    
-   total = 0
-   deleted = 0
-   temp.lock[user_id] = True    
+   DUPLICATE = []
+   total=deleted=0
+   temp.lock[user_id] = True
    try:
-     await sts.edit(DUPLICATE_TEXT.format(total, deleted, "ᴘʀᴏɢʀᴇssɪɴɢ"), reply_markup=CANCEL_BTN)
-     async for message in bot.search_messages(chat_id=chat_id, filter=enums.MessagesFilter.DOCUMENT):
+     await sts.edit(Translation.DUPLICATE_TEXT.format(total, deleted, "ᴘʀᴏɢʀᴇssɪɴɢ"), reply_markup=CANCEL_BTN)
+     async for message in bot.search_messages(chat_id=chat_id, filter="document"):
         if temp.CANCEL.get(user_id) == True:
-           await sts.edit(DUPLICATE_TEXT.format(total, deleted, "ᴄᴀɴᴄᴇʟʟᴇᴅ"), reply_markup=COMPLETED_BTN)
+           await sts.edit(Translation.DUPLICATE_TEXT.format(total, deleted, "ᴄᴀɴᴄᴇʟʟᴇᴅ"), reply_markup=COMPLETED_BTN)
            return await bot.stop()
         file = message.document
         file_id = unpack_new_file_id(file.file_id) 
@@ -107,12 +106,12 @@ async def unequify(client, message):
         else:
            MESSAGES.append(file_id)
         total += 1
-        if total %1000 == 0:
-           await sts.edit(DUPLICATE_TEXT.format(total, deleted, "ᴘʀᴏɢʀᴇssɪɴɢ"), reply_markup=CANCEL_BTN)
+        if total % 100 == 0:
+           await sts.edit(Translation.DUPLICATE_TEXT.format(total, deleted, "ᴘʀᴏɢʀᴇssɪɴɢ"), reply_markup=CANCEL_BTN)
         if len(DUPLICATE) >= 100:
            await bot.delete_messages(chat_id, DUPLICATE)
            deleted += 100
-           await sts.edit(DUPLICATE_TEXT.format(total, deleted, "ᴘʀᴏɢʀᴇssɪɴɢ"), reply_markup=CANCEL_BTN)
+           await sts.edit(Translation.DUPLICATE_TEXT.format(total, deleted, "ᴘʀᴏɢʀᴇssɪɴɢ"), reply_markup=CANCEL_BTN)
            DUPLICATE = []
      if DUPLICATE:
         await bot.delete_messages(chat_id, DUPLICATE)
@@ -122,5 +121,5 @@ async def unequify(client, message):
        await sts.edit(f"**ERROR**\n`{e}`")
        return await bot.stop()
    temp.lock[user_id] = False
-   await sts.edit(DUPLICATE_TEXT.format(total, deleted, "ᴄᴏᴍᴘʟᴇᴛᴇᴅ"), reply_markup=COMPLETED_BTN)
+   await sts.edit(Translation.DUPLICATE_TEXT.format(total, deleted, "ᴄᴏᴍᴘʟᴇᴛᴇᴅ"), reply_markup=COMPLETED_BTN)
    await bot.stop()
